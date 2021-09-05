@@ -1,0 +1,4 @@
+name: SimpleMaintenance
+version: '${project.version}'
+main: me.gardendev.bungecoord.BungeeCordPlugin
+author: xGardenDev
