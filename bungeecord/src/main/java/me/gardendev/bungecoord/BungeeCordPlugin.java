@@ -14,6 +14,6 @@ public final class BungeeCordPlugin extends Plugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        this.pluginCore.unload();
     }
 }
