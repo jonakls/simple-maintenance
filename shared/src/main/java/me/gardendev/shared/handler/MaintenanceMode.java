@@ -1,14 +1,16 @@
 package me.gardendev.shared.handler;
 
-import java.util.List;
+import me.gardendev.shared.api.Loader;
 
-public interface MaintenanceMode {
+public interface MaintenanceMode{
 
     void addPlayer(String player);
 
     void removePlayer(String player);
 
-    List<String> getWhitelisted();
+    void saveWhitelist();
+
+    void loadWhitelist();
 
     boolean isWhitelisted(String player);
 
