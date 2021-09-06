@@ -30,7 +30,7 @@ public class SpigotFileManager extends YamlConfiguration {
 
     public void create(){
         try {
-            if (!this.file.exists()) {
+            if (this.file.exists()) {
                 load(file);
                 save(file);
                 return;
