@@ -2,6 +2,7 @@ package me.gardendev.bungecoord;
 
 import me.gardendev.bungecoord.handler.MaintenanceHandler;
 import me.gardendev.bungecoord.loaders.BungeeFilesLoader;
+import me.gardendev.bungecoord.loaders.CommandsLoader;
 import me.gardendev.shared.api.Core;
 import me.gardendev.shared.api.Loader;
 
@@ -18,7 +19,8 @@ public class BungeePluginCore implements Core {
     @Override
     public void init() {
         initLoaders(
-                this.filesLoader = new BungeeFilesLoader(this)
+                this.filesLoader = new BungeeFilesLoader(this),
+                new CommandsLoader(this)
         );
         this.maintenanceHandler = new MaintenanceHandler(this);
     }
@@ -39,5 +41,9 @@ public class BungeePluginCore implements Core {
 
     public BungeeFilesLoader getFilesLoader() {
         return filesLoader;
+    }
+
+    public MaintenanceHandler getMaintenanceHandler() {
+        return maintenanceHandler;
     }
 }

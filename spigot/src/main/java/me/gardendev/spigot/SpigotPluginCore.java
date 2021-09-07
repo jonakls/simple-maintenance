@@ -40,4 +40,8 @@ public class SpigotPluginCore implements Core {
     public SpigotFilesLoader getFilesLoader() {
         return filesLoader;
     }
+
+    public MaintenanceHandler getMaintenanceHandler() {
+        return maintenanceHandler;
+    }
 }
