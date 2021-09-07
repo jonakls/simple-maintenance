@@ -23,11 +23,11 @@ public class BungeeFilesLoader implements Loader {
         this.lang = new BungeeFileManager(plugin, "lang.yml");
     }
 
-    public Configuration getConfig() {
-        return config.getConfiguration();
+    public BungeeFileManager getConfig() {
+        return config;
     }
 
-    public Configuration getLang() {
-        return lang.getConfiguration();
+    public BungeeFileManager getLang() {
+        return lang;
     }
 }
