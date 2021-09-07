@@ -13,7 +13,7 @@ public class MaintenanceHandler implements MaintenanceMode {
     private List<String> whitelist;
 
     public MaintenanceHandler(BungeePluginCore pluginCore) {
-        this.config = pluginCore.getFilesLoader().getConfig();
+        this.config = pluginCore.getFilesLoader().getConfig().getConfiguration();
         loadWhitelist();
     }
 
