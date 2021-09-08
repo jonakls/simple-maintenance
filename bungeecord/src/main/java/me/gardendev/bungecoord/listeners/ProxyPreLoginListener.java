@@ -2,10 +2,12 @@ package me.gardendev.bungecoord.listeners;
 
 import me.gardendev.bungecoord.BungeePluginCore;
 import me.gardendev.bungecoord.handler.MaintenanceHandler;
+import me.gardendev.bungecoord.utils.ChatUtil;
 import net.md_5.bungee.api.event.PreLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.event.EventHandler;
+
 
 public class ProxyPreLoginListener implements Listener {
 
@@ -26,13 +28,12 @@ public class ProxyPreLoginListener implements Listener {
             return;
         }
 
-
-        for(String line : config.getStringList("maintenance.kick-message")) {
-
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String string : config.getStringList("kick-message")) {
+            stringBuilder.append(string).append("\n");
         }
-
         event.setCancelled(true);
-        event.setCancelReason();
+        event.setCancelReason(ChatUtil.apply(stringBuilder.toString()));
 
     }
 
