@@ -1,8 +1,6 @@
 package me.gardendev.shared.handler;
 
-import me.gardendev.shared.api.Loader;
-
-public interface MaintenanceMode{
+public interface MaintenanceMode {
 
     void addPlayer(String player);
 

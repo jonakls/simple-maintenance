@@ -14,7 +14,6 @@ public class MaintenanceHandler implements MaintenanceMode {
 
     public MaintenanceHandler(BungeePluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig().getConfiguration();
-        loadWhitelist();
     }
 
     @Override
