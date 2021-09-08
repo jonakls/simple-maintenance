@@ -11,11 +11,12 @@ public class MainCommand implements CommandExecutor {
 
     private final SpigotFileManager config;
     private final SpigotFileManager lang;
-    private MaintenanceHandler maintenanceHandler;
+    private final MaintenanceHandler maintenanceHandler;
 
     public MainCommand(SpigotPluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig();
         this.lang = pluginCore.getFilesLoader().getLang();
+        this.maintenanceHandler = pluginCore.getHandlersLoader().getMaintenanceHandler();
     }
 
     @Override
@@ -27,6 +28,16 @@ public class MainCommand implements CommandExecutor {
         }
 
         switch (args[0].toLowerCase()) {
+            case "on":
+            case "enable":
+                config.set("maintenance.enable", true);
+                sender.sendMessage(lang.getString("lang.enable"));
+                break;
+            case "off":
+            case "disable":
+                config.set("maintenance.enable", false);
+                sender.sendMessage(lang.getString("lang.disable"));
+                break;
             case "reload":
                 config.reload();
                 lang.reload();
