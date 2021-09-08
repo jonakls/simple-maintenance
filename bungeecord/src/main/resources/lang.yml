@@ -1,0 +1,12 @@
+#
+# BungeeCord
+#
+lang:
+  enable: "&aMaintenance has been enable"
+  disable: "&cMaintenance has been disable"
+  reload: "&aPlugin has been reloaded"
+  player-exist: "&cThis player already in whitelist"
+  player-added: "&aPlayer %player% has been added to whitelist"
+  player-removed: "&cPlayer %player% has been removed to whitelist"
+  whitelist-saved: "&aWhitelist save successfully"
+  unknown-command: "&cUnknown command, please use /sm help"

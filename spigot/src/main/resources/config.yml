@@ -1,3 +1,17 @@
+#
+# Spigot
+#
+maintenance:
+  enable: false
+kick-message:
+  - '&8[&bSimpleMaintenance&8]'
+  - '&r'
+  - '&cServer under maintenance!'
+  - '&r'
+  - '&aRemember to change this'
+  - '&amessage in your config file.'
+  - '&r'
+  - '&eMore info in: &chttps://discord.gg/invite'
 whitelist-players:
   - xGardenDev
   - md_5

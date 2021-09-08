@@ -3,3 +3,10 @@ version: '${project.version}'
 main: me.gardendev.spigot.SpigotPlugin
 api-version: 1.17
 author: xGardenDev
+commands:
+  simplemaintenance:
+    description: General command of plugin
+    aliases:
+      - sm
+      - maintenance
+      - swhitelist
