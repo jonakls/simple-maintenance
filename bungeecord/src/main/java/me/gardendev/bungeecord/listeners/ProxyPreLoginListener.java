@@ -1,13 +1,12 @@
-package me.gardendev.bungecoord.listeners;
+package me.gardendev.bungeecord.listeners;
 
-import me.gardendev.bungecoord.BungeePluginCore;
-import me.gardendev.bungecoord.handler.MaintenanceHandler;
-import me.gardendev.bungecoord.utils.ChatUtil;
+import me.gardendev.bungeecord.BungeePluginCore;
+import me.gardendev.bungeecord.handler.MaintenanceHandler;
+import me.gardendev.bungeecord.utils.ChatUtil;
 import net.md_5.bungee.api.event.PreLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.event.EventHandler;
-
 
 public class ProxyPreLoginListener implements Listener {
 
