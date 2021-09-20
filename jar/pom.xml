@@ -12,7 +12,7 @@
     <artifactId>jar</artifactId>
 
     <build>
-        <finalName>SimpleMaintenance-${project.version}</finalName>
+        <finalName>SimpleMaintenance-v${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
