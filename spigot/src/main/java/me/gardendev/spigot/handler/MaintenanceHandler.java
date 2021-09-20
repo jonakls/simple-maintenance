@@ -31,18 +31,32 @@ public class MaintenanceHandler implements MaintenanceMode {
     @Override
     public void saveWhitelist() {
         config.set("whitelist-players", whitelist);
-
+        whitelist.clear();
     }
 
     @Override
     public void loadWhitelist() {
         this.whitelist = config.getStringList("whitelist-players");
+    }
 
+    @Override
+    public void updateWhitelist() {
+        for(String player : config.getStringList("whitelist-players")) {
+            if(!whitelist.contains(player)) {
+                whitelist.add(player);
+            }
+        }
+        this.saveWhitelist();
     }
 
     @Override
     public boolean isWhitelisted(String player) {
         return whitelist.contains(player);
+    }
+
+    @Override
+    public List<String> getWhitelist() {
+        return whitelist;
     }
 
 }
