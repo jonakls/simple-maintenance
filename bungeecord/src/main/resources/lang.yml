@@ -6,6 +6,7 @@ lang:
   disable: "&cMaintenance has been disable"
   reload: "&aPlugin has been reloaded"
   player-exist: "&cThis player already in whitelist"
+  player-no-exist: "&cThis player is not in the whitelist"
   player-added: "&aPlayer %player% has been added to whitelist"
   player-removed: "&cPlayer %player% has been removed to whitelist"
   whitelist-saved: "&aWhitelist save successfully"
