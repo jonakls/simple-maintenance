@@ -1,6 +1,6 @@
-package me.gardendev.bungecoord.managers;
+package me.gardendev.bungeecord.managers;
 
-import me.gardendev.bungecoord.BungeeCordPlugin;
+import me.gardendev.bungeecord.BungeeCordPlugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -38,7 +38,6 @@ public class BungeeFileManager {
                 this.plugin.getLogger().log(Level.SEVERE, "Error trying to upload file " + this.fileName);
                 e.printStackTrace();
             }
-            return;
         }
         this.load();
     }
@@ -46,6 +45,7 @@ public class BungeeFileManager {
     public void load() {
         try {
             this.configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(this.file);
+            this.plugin.getLogger().log(Level.FINE, "File " + this.fileName + " has been loaded");
         } catch (IOException e) {
             e.printStackTrace();
         }
