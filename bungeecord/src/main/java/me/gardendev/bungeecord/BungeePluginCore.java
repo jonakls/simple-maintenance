@@ -1,8 +1,9 @@
-package me.gardendev.bungecoord;
+package me.gardendev.bungeecord;
 
-import me.gardendev.bungecoord.handler.MaintenanceHandler;
-import me.gardendev.bungecoord.loaders.BungeeFilesLoader;
-import me.gardendev.bungecoord.loaders.CommandsLoader;
+import me.gardendev.bungeecord.handler.MaintenanceHandler;
+import me.gardendev.bungeecord.loaders.BungeeFilesLoader;
+import me.gardendev.bungeecord.loaders.CommandsLoader;
+import me.gardendev.bungeecord.loaders.ListenersLoader;
 import me.gardendev.shared.api.Core;
 import me.gardendev.shared.api.Loader;
 
@@ -18,11 +19,15 @@ public class BungeePluginCore implements Core {
 
     @Override
     public void init() {
-        initLoaders(
-                this.filesLoader = new BungeeFilesLoader(this),
-                new CommandsLoader(this)
-        );
+        plugin.getLogger().info("Loading loaders...");
+        this.filesLoader = new BungeeFilesLoader(this);
+        this.filesLoader.load();
         this.maintenanceHandler = new MaintenanceHandler(this);
+        this.maintenanceHandler.loadWhitelist();
+        initLoaders(
+                new CommandsLoader(this),
+                new ListenersLoader(this)
+        );
     }
 
     public void unload() {
