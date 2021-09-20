@@ -1,5 +1,7 @@
 package me.gardendev.shared.handler;
 
+import java.util.List;
+
 public interface MaintenanceMode {
 
     void addPlayer(String player);
@@ -10,6 +12,10 @@ public interface MaintenanceMode {
 
     void loadWhitelist();
 
+    void updateWhitelist();
+
     boolean isWhitelisted(String player);
+
+    List<String> getWhitelist();
 
 }
