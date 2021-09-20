@@ -1,4 +1,4 @@
-package me.gardendev.bungecoord.utils;
+package me.gardendev.bungeecord.utils;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;

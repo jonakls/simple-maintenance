@@ -1,4 +1,4 @@
-package me.gardendev.bungecoord.builder;
+package me.gardendev.bungeecord.builder;
 
 import net.md_5.bungee.api.plugin.Command;
 

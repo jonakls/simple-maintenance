@@ -1,10 +1,9 @@
-package me.gardendev.bungecoord.loaders;
+package me.gardendev.bungeecord.loaders;
 
-import me.gardendev.bungecoord.BungeeCordPlugin;
-import me.gardendev.bungecoord.BungeePluginCore;
-import me.gardendev.bungecoord.managers.BungeeFileManager;
+import me.gardendev.bungeecord.BungeeCordPlugin;
+import me.gardendev.bungeecord.BungeePluginCore;
+import me.gardendev.bungeecord.managers.BungeeFileManager;
 import me.gardendev.shared.api.Loader;
-import net.md_5.bungee.config.Configuration;
 
 public class BungeeFilesLoader implements Loader {
 
@@ -19,8 +18,10 @@ public class BungeeFilesLoader implements Loader {
 
     @Override
     public void load() {
+        plugin.getLogger().info("Loading files...");
         this.config = new BungeeFileManager(plugin, "config.yml");
         this.lang = new BungeeFileManager(plugin, "lang.yml");
+        plugin.getLogger().info("Files loaded!");
     }
 
     public BungeeFileManager getConfig() {

@@ -1,8 +1,8 @@
-package me.gardendev.bungecoord.loaders;
+package me.gardendev.bungeecord.loaders;
 
-import me.gardendev.bungecoord.BungeePluginCore;
-import me.gardendev.bungecoord.builder.CommandBuilder;
-import me.gardendev.bungecoord.commands.BungeeMainCommand;
+import me.gardendev.bungeecord.BungeePluginCore;
+import me.gardendev.bungeecord.builder.CommandBuilder;
+import me.gardendev.bungeecord.commands.BungeeMainCommand;
 import me.gardendev.shared.api.Loader;
 import net.md_5.bungee.api.ProxyServer;
 

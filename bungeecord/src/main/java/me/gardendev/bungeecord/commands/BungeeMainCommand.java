@@ -1,9 +1,9 @@
-package me.gardendev.bungecoord.commands;
+package me.gardendev.bungeecord.commands;
 
-import me.gardendev.bungecoord.BungeePluginCore;
-import me.gardendev.bungecoord.handler.MaintenanceHandler;
-import me.gardendev.bungecoord.managers.BungeeFileManager;
-import me.gardendev.bungecoord.utils.ChatUtil;
+import me.gardendev.bungeecord.BungeePluginCore;
+import me.gardendev.bungeecord.handler.MaintenanceHandler;
+import me.gardendev.bungeecord.managers.BungeeFileManager;
+import me.gardendev.bungeecord.utils.ChatUtil;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
 
@@ -37,16 +37,19 @@ public class BungeeMainCommand extends Command {
             case "on":
             case "enable":
                 config.getConfiguration().set("maintenance.enable", true);
+                config.save();
                 sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.enable")));
                 break;
             case "off":
             case "disable":
                 config.getConfiguration().set("maintenance.enable", false);
+                config.save();
                 sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.disable")));
                 break;
             case "reload":
-                lang.load();
                 config.load();
+                lang.load();
+                maintenanceHandler.updateWhitelist();
                 sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.reload")));
                 break;
             case "add":
@@ -59,8 +62,8 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "remove":
-                if (maintenanceHandler.isWhitelisted(args[1])) {
-                    sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-exist")));
+                if (!maintenanceHandler.isWhitelisted(args[1])) {
+                    sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-no-exist")));
                     return;
                 }
                 maintenanceHandler.removePlayer(args[1]);
@@ -69,7 +72,7 @@ public class BungeeMainCommand extends Command {
                 break;
             case "list":
                 StringBuilder builder = new StringBuilder();
-                for(String string : config.getConfiguration().getStringList("whitelist-players")) {
+                for(String string : maintenanceHandler.getWhitelist()) {
                     builder.append(string).append(' ');
                 }
                 sender.sendMessage(ChatUtil.apply("Players: " + builder));
