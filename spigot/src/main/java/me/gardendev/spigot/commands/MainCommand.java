@@ -61,7 +61,7 @@ public class MainCommand implements CommandExecutor {
                 break;
             case "list":
                 StringBuilder builder = new StringBuilder();
-                for(String string : config.getStringList("whitelist-players")) {
+                for(String string : maintenanceHandler.getWhitelist()) {
                     builder.append(string).append(' ');
                 }
                 sender.sendMessage("Players: " + builder);
