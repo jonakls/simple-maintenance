@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>jar</artifactId>
   <build>
-    <finalName>SimpleMaintenance-${project.version}</finalName>
+    <finalName>SimpleMaintenance-v${project.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
