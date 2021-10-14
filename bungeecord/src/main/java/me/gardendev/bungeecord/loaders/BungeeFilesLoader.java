@@ -19,8 +19,8 @@ public class BungeeFilesLoader implements Loader {
     @Override
     public void load() {
         plugin.getLogger().info("Loading files...");
-        this.config = new BungeeFileManager(plugin, "config.yml");
-        this.lang = new BungeeFileManager(plugin, "lang.yml");
+        this.config = new BungeeFileManager(plugin, "bungeeconfig.yml");
+        this.lang = new BungeeFileManager(plugin, "bungeelang.yml");
         plugin.getLogger().info("Files loaded!");
     }
 

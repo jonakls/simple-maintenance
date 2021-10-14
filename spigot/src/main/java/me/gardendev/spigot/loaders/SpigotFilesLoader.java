@@ -18,8 +18,8 @@ public class SpigotFilesLoader implements Loader {
 
     @Override
     public void load() {
-        this.config = new SpigotFileManager(plugin, "config.yml");
-        this.lang = new SpigotFileManager(plugin, "lang.yml");
+        this.config = new SpigotFileManager(plugin, "spigotconfig.yml");
+        this.lang = new SpigotFileManager(plugin, "spigotlang.yml");
     }
 
     public SpigotFileManager getConfig() {
