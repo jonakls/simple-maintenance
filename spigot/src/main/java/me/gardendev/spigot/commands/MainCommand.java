@@ -7,6 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.util.StringJoiner;
+
+@SuppressWarnings("all")
 public class MainCommand implements CommandExecutor {
 
     private final SpigotFileManager config;
@@ -16,7 +19,7 @@ public class MainCommand implements CommandExecutor {
     public MainCommand(SpigotPluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig();
         this.lang = pluginCore.getFilesLoader().getLang();
-        this.maintenanceHandler = pluginCore.getHandlersLoader().getMaintenanceHandler();
+        this.maintenanceHandler = pluginCore.getMaintenanceHandler();
     }
 
     @Override
@@ -45,26 +48,26 @@ public class MainCommand implements CommandExecutor {
                 break;
             case "add":
                 if (maintenanceHandler.isWhitelisted(args[1])) {
-                    sender.sendMessage(lang.getString("lang.player-exist"));
+                    sender.sendMessage(lang.getString("lang.player-exist").replace("%player%", args[1]));
                     return true;
                 }
                 maintenanceHandler.addPlayer(args[1]);
-                sender.sendMessage(lang.getString("lang.player-added"));
+                sender.sendMessage(lang.getString("lang.player-added").replace("%player%", args[1]));
                 break;
             case "remove":
-                if (maintenanceHandler.isWhitelisted(args[1])) {
-                    sender.sendMessage(lang.getString("lang.player-exist"));
+                if (!maintenanceHandler.isWhitelisted(args[1])) {
+                    sender.sendMessage(lang.getString("lang.player-exist").replace("%player%", args[1]));
                     return true;
                 }
                 maintenanceHandler.removePlayer(args[1]);
-                sender.sendMessage(lang.getString("lang.player-removed"));
+                sender.sendMessage(lang.getString("lang.player-removed").replace("%player%", args[1]));
                 break;
             case "list":
-                StringBuilder builder = new StringBuilder();
+                StringJoiner joiner = new StringJoiner(",");
                 for(String string : maintenanceHandler.getWhitelist()) {
-                    builder.append(string).append(' ');
+                    joiner.add(string);
                 }
-                sender.sendMessage("Players: " + builder);
+                sender.sendMessage("Players: " + joiner.toString());
                 break;
             case "save":
                 maintenanceHandler.saveWhitelist();
