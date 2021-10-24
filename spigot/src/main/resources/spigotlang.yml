@@ -11,3 +11,4 @@ lang:
   player-removed: "&cPlayer %player% has been removed to whitelist"
   whitelist-saved: "&aWhitelist save successfully"
   unknown-command: "&cUnknown command, please use /sm help"
+  no-permission: '&cYou don''t have enough permissions to do that.'
