@@ -25,7 +25,7 @@ public class BungeeFileManager {
         create();
     }
 
-    public void create() {
+    private void create() {
         if(!this.plugin.getDataFolder().exists()) {
             this.plugin.getDataFolder().mkdirs();
         }
@@ -52,7 +52,7 @@ public class BungeeFileManager {
     }
 
 
-    public void save(){
+    public void save() {
         try {
             ConfigurationProvider.getProvider(YamlConfiguration.class).save(this.configuration, this.file);
         } catch (IOException e) {
