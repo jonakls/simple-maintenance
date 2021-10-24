@@ -31,7 +31,12 @@ public class BungeeMainCommand extends Command {
     public void execute(CommandSender sender, String[] args) {
 
         if (!(args.length > 0)) {
-            sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.unknown-command")));
+            sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.unknown-command")));
+            return;
+        }
+
+        if (!sender.hasPermission("simplemaintenance.commands")) {
+            sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.no-permission")));
             return;
         }
 
@@ -40,36 +45,36 @@ public class BungeeMainCommand extends Command {
             case "enable":
                 config.getConfiguration().set("maintenance.enable", true);
                 config.save();
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.enable")));
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.enable")));
                 break;
             case "off":
             case "disable":
                 config.getConfiguration().set("maintenance.enable", false);
                 config.save();
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.disable")));
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.disable")));
                 break;
             case "reload":
                 config.load();
                 lang.load();
                 maintenanceHandler.updateWhitelist();
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.reload")));
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.reload")));
                 break;
             case "add":
                 if (maintenanceHandler.isWhitelisted(args[1])) {
-                    sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-exist")));
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-exist")));
                     return;
                 }
                 maintenanceHandler.addPlayer(args[1]);
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-added")
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-added")
                         .replace("%player%", args[1])));
                 break;
             case "remove":
                 if (!maintenanceHandler.isWhitelisted(args[1])) {
-                    sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-no-exist")));
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-no-exist")));
                     return;
                 }
                 maintenanceHandler.removePlayer(args[1]);
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.player-removed")
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-removed")
                         .replace("%player%", args[1])));
                 break;
             case "list":
@@ -77,14 +82,14 @@ public class BungeeMainCommand extends Command {
                 for(String string : maintenanceHandler.getWhitelist()) {
                     joiner.add(string);
                 }
-                sender.sendMessage(ChatUtil.apply("Players: " + joiner));
+                sender.sendMessage(ChatUtil.toLegacyComponent("Players: " + joiner));
                 break;
             case "save":
                 maintenanceHandler.saveWhitelist();
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.whitelist-saved")));
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.whitelist-saved")));
                 break;
             default:
-                sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.unknown-command")));
+                sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.unknown-command")));
                 break;
         }
 

@@ -30,15 +30,22 @@ public class MainCommand implements CommandExecutor {
             return true;
         }
 
+        if (!sender.hasPermission("simplemaintenance.commands")) {
+            sender.sendMessage(lang.getString("lang.no-permission"));
+            return true;
+        }
+
         switch (args[0].toLowerCase()) {
             case "on":
             case "enable":
                 config.set("maintenance.enable", true);
+                config.save();
                 sender.sendMessage(lang.getString("lang.enable"));
                 break;
             case "off":
             case "disable":
                 config.set("maintenance.enable", false);
+                config.save();
                 sender.sendMessage(lang.getString("lang.disable"));
                 break;
             case "reload":
