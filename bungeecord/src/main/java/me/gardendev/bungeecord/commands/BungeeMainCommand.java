@@ -7,6 +7,8 @@ import me.gardendev.bungeecord.utils.ChatUtil;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
 
+import java.util.StringJoiner;
+
 public class BungeeMainCommand extends Command {
 
     private final BungeeFileManager lang;
@@ -71,11 +73,11 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "list":
-                StringBuilder builder = new StringBuilder();
+                StringJoiner joiner = new StringJoiner(",");
                 for(String string : maintenanceHandler.getWhitelist()) {
-                    builder.append(string).append(' ');
+                    joiner.add(string);
                 }
-                sender.sendMessage(ChatUtil.apply("Players: " + builder));
+                sender.sendMessage(ChatUtil.apply("Players: " + joiner));
                 break;
             case "save":
                 maintenanceHandler.saveWhitelist();
@@ -85,7 +87,6 @@ public class BungeeMainCommand extends Command {
                 sender.sendMessage(ChatUtil.apply(lang.getConfiguration().getString("lang.unknown-command")));
                 break;
         }
-        return;
 
     }
 }
