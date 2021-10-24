@@ -5,7 +5,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class ChatUtil {
 
-    public static TextComponent apply(String text) {
+    public static TextComponent toLegacyComponent(String text) {
         return new TextComponent(ChatColor.translateAlternateColorCodes('&', text));
     }
 }
