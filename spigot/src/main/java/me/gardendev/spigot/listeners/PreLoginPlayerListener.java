@@ -16,7 +16,7 @@ public class PreLoginPlayerListener implements Listener {
 
     public PreLoginPlayerListener(SpigotPluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig();
-        this.maintenanceHandler = pluginCore.getHandlersLoader().getMaintenanceHandler();
+        this.maintenanceHandler = pluginCore.getMaintenanceHandler();
     }
 
     @EventHandler
@@ -29,7 +29,7 @@ public class PreLoginPlayerListener implements Listener {
         }
         StringBuilder stringBuilder = new StringBuilder();
         for(String string : config.getStringList("kick-message")) {
-            stringBuilder.append(string).append("\n");
+            stringBuilder.append("\n").append(string);
         }
         event.setKickMessage(stringBuilder.toString());
         event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_WHITELIST, ChatUtil.apply(event.getKickMessage()));
