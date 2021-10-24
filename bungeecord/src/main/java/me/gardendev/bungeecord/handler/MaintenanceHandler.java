@@ -29,6 +29,7 @@ public class MaintenanceHandler implements MaintenanceMode {
     public void saveWhitelist() {
         config.getConfiguration().set("whitelist-players", whitelist);
         config.save();
+        loadWhitelist();
     }
 
     @Override

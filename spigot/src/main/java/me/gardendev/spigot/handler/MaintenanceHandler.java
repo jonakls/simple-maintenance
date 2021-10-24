@@ -9,12 +9,10 @@ import java.util.List;
 public class MaintenanceHandler implements MaintenanceMode {
 
     private final SpigotFileManager config;
-
     private List<String> whitelist;
 
     public MaintenanceHandler(SpigotPluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig();
-        loadWhitelist();
     }
 
     @Override
@@ -31,7 +29,8 @@ public class MaintenanceHandler implements MaintenanceMode {
     @Override
     public void saveWhitelist() {
         config.set("whitelist-players", whitelist);
-        whitelist.clear();
+        config.save();
+        loadWhitelist();
     }
 
     @Override
