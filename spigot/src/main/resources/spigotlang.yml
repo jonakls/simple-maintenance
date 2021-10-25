@@ -12,3 +12,6 @@ lang:
   whitelist-saved: "&aWhitelist save successfully"
   unknown-command: "&cUnknown command, please use /sm help"
   no-permission: '&cYou don''t have enough permissions to do that.'
+  usage:
+    add: '&cPlease use /%command% add <player>'
+    remove: '&cPlease use /%command% remove <player>'

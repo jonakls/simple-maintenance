@@ -60,6 +60,10 @@ public class BungeeMainCommand extends Command {
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.reload")));
                 break;
             case "add":
+                if (args.length != 2){
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.usage.add").replace("%command%", this.getName())));
+                    return;
+                }
                 if (maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-exist")));
                     return;
@@ -69,6 +73,10 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "remove":
+                if (args.length != 2){
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.usage.remove").replace("%command%", this.getName())));
+                    return;
+                }
                 if (!maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-no-exist")));
                     return;
