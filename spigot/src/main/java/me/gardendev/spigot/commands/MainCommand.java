@@ -26,7 +26,8 @@ public class MainCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(args.length > 0)) {
-            sender.sendMessage(lang.getString("lang.unknown-command"));
+            lang.getStringList("lang.help").forEach(string ->
+                    sender.sendMessage(string.replace("%command%", label)));
             return true;
         }
 
@@ -87,6 +88,11 @@ public class MainCommand implements CommandExecutor {
             case "save":
                 maintenanceHandler.saveWhitelist();
                 sender.sendMessage(lang.getString("lang.whitelist-saved"));
+                break;
+            case "help":
+                lang.getStringList("lang.help").forEach(string -> {
+                    sender.sendMessage(string.replace("%command%", label));
+                });
                 break;
             default:
                 sender.sendMessage(lang.getString("lang.unknown-command"));
