@@ -19,11 +19,10 @@ public class CommandLoader implements Loader {
         registerCommand(
                 new CommandBuilder("simplemaintenance", new MainCommand(pluginCore))
         );
-
     }
 
     private void registerCommand(CommandBuilder... commandBuilders) {
-        for(CommandBuilder commandBuilder : commandBuilders) {
+        for (CommandBuilder commandBuilder : commandBuilders) {
             Bukkit.getPluginCommand(commandBuilder.getCommand()).setExecutor(commandBuilder.getCommandExecutor());
         }
     }

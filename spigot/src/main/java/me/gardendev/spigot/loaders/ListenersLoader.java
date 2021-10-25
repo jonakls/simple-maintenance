@@ -22,7 +22,7 @@ public class ListenersLoader implements Loader {
     }
 
     private void registerListener(Listener... listeners) {
-        for( Listener listener : listeners) {
+        for (Listener listener : listeners) {
             Bukkit.getPluginManager().registerEvents(
                     listener,
                     pluginCore.getPlugin()

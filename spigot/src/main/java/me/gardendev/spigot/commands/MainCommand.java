@@ -55,7 +55,7 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.reload"));
                 break;
             case "add":
-                if (args.length != 2){
+                if (args.length != 2) {
                     sender.sendMessage(lang.getString("lang.usage.add").replace("%command%", label));
                     return true;
                 }
@@ -67,7 +67,7 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.player-added").replace("%player%", args[1]));
                 break;
             case "remove":
-                if (args.length != 2){
+                if (args.length != 2) {
                     sender.sendMessage(lang.getString("lang.usage.remove").replace("%command%", label));
                     return true;
                 }

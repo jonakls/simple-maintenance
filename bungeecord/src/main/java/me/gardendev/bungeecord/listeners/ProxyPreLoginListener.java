@@ -30,13 +30,11 @@ public class ProxyPreLoginListener implements Listener {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for(String string : config.getStringList("kick-message")) {
+        for (String string : config.getStringList("kick-message")) {
             stringBuilder.append(string).append("\n");
         }
         event.setCancelled(true);
         event.setCancelReason(ChatUtil.toLegacyComponent(stringBuilder.toString()));
-
     }
-
 
 }

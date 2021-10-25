@@ -35,7 +35,7 @@ public class BungeePluginCore implements Core {
     }
 
     private void initLoaders(Loader... loaders) {
-        for(Loader loader : loaders) {
+        for (Loader loader : loaders) {
             loader.load();
         }
     }

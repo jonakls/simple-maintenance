@@ -26,7 +26,7 @@ public class BungeeFileManager {
     }
 
     private void create() {
-        if(!this.plugin.getDataFolder().exists()) {
+        if (!this.plugin.getDataFolder().exists()) {
             this.plugin.getDataFolder().mkdirs();
         }
 

@@ -23,7 +23,6 @@ public class MaintenanceHandler implements MaintenanceMode {
     @Override
     public void removePlayer(String player) {
         whitelist.remove(player);
-
     }
 
     @Override
@@ -40,8 +39,8 @@ public class MaintenanceHandler implements MaintenanceMode {
 
     @Override
     public void updateWhitelist() {
-        for(String player : config.getStringList("whitelist-players")) {
-            if(!whitelist.contains(player)) {
+        for (String player : config.getStringList("whitelist-players")) {
+            if (!whitelist.contains(player)) {
                 whitelist.add(player);
             }
         }

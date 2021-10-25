@@ -98,9 +98,8 @@ public class BungeeMainCommand extends Command {
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.whitelist-saved")));
                 break;
             case "help":
-                lang.getConfiguration().getStringList("lang.help").forEach(string -> {
-                    sender.sendMessage(string.replace("%command%", this.getName()));
-                });
+                lang.getConfiguration().getStringList("lang.help").forEach(string ->
+                    sender.sendMessage(ChatUtil.toLegacyComponent(string.replace("%command%", this.getName()))));
                 break;
             default:
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.unknown-command")));

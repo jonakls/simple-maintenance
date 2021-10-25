@@ -31,7 +31,7 @@ public class SpigotFileManager extends YamlConfiguration {
         this(plugin, fileName, ".yml");
     }
 
-    public void create(){
+    public void create() {
         try {
             if (this.file.exists()) {
                 load(file);

@@ -33,8 +33,6 @@ public class PreLoginPlayerListener implements Listener {
         }
         event.setKickMessage(stringBuilder.toString());
         event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_WHITELIST, ChatUtil.apply(event.getKickMessage()));
-
     }
-
 
 }

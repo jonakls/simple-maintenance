@@ -19,7 +19,6 @@ public class CommandsLoader implements Loader {
         registerCommands(
                 new CommandBuilder(new BungeeMainCommand(pluginCore))
         );
-
     }
 
     public void registerCommands(CommandBuilder... commandBuilders) {
