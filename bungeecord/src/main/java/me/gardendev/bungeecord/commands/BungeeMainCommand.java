@@ -31,7 +31,8 @@ public class BungeeMainCommand extends Command {
     public void execute(CommandSender sender, String[] args) {
 
         if (!(args.length > 0)) {
-            sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.unknown-command")));
+            lang.getConfiguration().getStringList("lang.help").forEach(string ->
+                    sender.sendMessage(ChatUtil.toLegacyComponent(string.replace("%command%", this.getName()))));
             return;
         }
 
@@ -60,6 +61,10 @@ public class BungeeMainCommand extends Command {
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.reload")));
                 break;
             case "add":
+                if (args.length != 2){
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.usage.add").replace("%command%", this.getName())));
+                    return;
+                }
                 if (maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-exist")));
                     return;
@@ -69,6 +74,10 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "remove":
+                if (args.length != 2){
+                    sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.usage.remove").replace("%command%", this.getName())));
+                    return;
+                }
                 if (!maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.player-no-exist")));
                     return;
@@ -78,8 +87,8 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "list":
-                StringJoiner joiner = new StringJoiner(",");
-                for(String string : maintenanceHandler.getWhitelist()) {
+                StringJoiner joiner = new StringJoiner(", ");
+                for (String string : maintenanceHandler.getWhitelist()) {
                     joiner.add(string);
                 }
                 sender.sendMessage(ChatUtil.toLegacyComponent("Players: " + joiner));
@@ -87,6 +96,10 @@ public class BungeeMainCommand extends Command {
             case "save":
                 maintenanceHandler.saveWhitelist();
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.whitelist-saved")));
+                break;
+            case "help":
+                lang.getConfiguration().getStringList("lang.help").forEach(string ->
+                    sender.sendMessage(ChatUtil.toLegacyComponent(string.replace("%command%", this.getName()))));
                 break;
             default:
                 sender.sendMessage(ChatUtil.toLegacyComponent(lang.getConfiguration().getString("lang.unknown-command")));

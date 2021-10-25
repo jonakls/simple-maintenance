@@ -26,7 +26,8 @@ public class MainCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(args.length > 0)) {
-            sender.sendMessage(lang.getString("lang.unknown-command"));
+            lang.getStringList("lang.help").forEach(string ->
+                    sender.sendMessage(string.replace("%command%", label)));
             return true;
         }
 
@@ -54,6 +55,10 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.reload"));
                 break;
             case "add":
+                if (args.length != 2) {
+                    sender.sendMessage(lang.getString("lang.usage.add").replace("%command%", label));
+                    return true;
+                }
                 if (maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(lang.getString("lang.player-exist").replace("%player%", args[1]));
                     return true;
@@ -62,6 +67,10 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.player-added").replace("%player%", args[1]));
                 break;
             case "remove":
+                if (args.length != 2) {
+                    sender.sendMessage(lang.getString("lang.usage.remove").replace("%command%", label));
+                    return true;
+                }
                 if (!maintenanceHandler.isWhitelisted(args[1])) {
                     sender.sendMessage(lang.getString("lang.player-exist").replace("%player%", args[1]));
                     return true;
@@ -70,8 +79,8 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.player-removed").replace("%player%", args[1]));
                 break;
             case "list":
-                StringJoiner joiner = new StringJoiner(",");
-                for(String string : maintenanceHandler.getWhitelist()) {
+                StringJoiner joiner = new StringJoiner(", ");
+                for (String string : maintenanceHandler.getWhitelist()) {
                     joiner.add(string);
                 }
                 sender.sendMessage("Players: " + joiner.toString());
@@ -79,6 +88,11 @@ public class MainCommand implements CommandExecutor {
             case "save":
                 maintenanceHandler.saveWhitelist();
                 sender.sendMessage(lang.getString("lang.whitelist-saved"));
+                break;
+            case "help":
+                lang.getStringList("lang.help").forEach(string -> {
+                    sender.sendMessage(string.replace("%command%", label));
+                });
                 break;
             default:
                 sender.sendMessage(lang.getString("lang.unknown-command"));

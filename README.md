@@ -10,11 +10,11 @@ Basic and simple solution that will allow you to create a maintenance mode on yo
 * simplemaintenance.commands
 
 ## Commands:
-* /simplemaintenance | General command
-* /simplemaintenance reload | Reload plugin
-* /simplemaintenance on/enable | Enable maintenance mode
-* /simplemaintenance off/disable | Disable maintenance mode
-* /simplemaintenance add <player> | Add the player to whitelist
-* /simplemaintenance remove <player> | Remove player to the whitelist
+* /simplemaintenance | General help command.
+* /simplemaintenance reload | Reload plugin.
+* /simplemaintenance on/enable | Enable maintenance mode.
+* /simplemaintenance off/disable | Disable maintenance mode.
+* /simplemaintenance add <player> | Add the player to maintenance whitelist.
+* /simplemaintenance remove <player> | Remove player from maintenance whitelist.
 * /simplemaintenance list | Get players on the whitelist.
-* /simplemaintenance save | Save data of players in config
+* /simplemaintenance save | Save data of players in config.
