@@ -70,8 +70,8 @@ public class MainCommand implements CommandExecutor {
                 sender.sendMessage(lang.getString("lang.player-removed").replace("%player%", args[1]));
                 break;
             case "list":
-                StringJoiner joiner = new StringJoiner(",");
-                for(String string : maintenanceHandler.getWhitelist()) {
+                StringJoiner joiner = new StringJoiner(", ");
+                for (String string : maintenanceHandler.getWhitelist()) {
                     joiner.add(string);
                 }
                 sender.sendMessage("Players: " + joiner.toString());

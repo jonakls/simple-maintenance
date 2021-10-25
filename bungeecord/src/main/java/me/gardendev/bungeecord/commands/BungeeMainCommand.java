@@ -78,8 +78,8 @@ public class BungeeMainCommand extends Command {
                         .replace("%player%", args[1])));
                 break;
             case "list":
-                StringJoiner joiner = new StringJoiner(",");
-                for(String string : maintenanceHandler.getWhitelist()) {
+                StringJoiner joiner = new StringJoiner(", ");
+                for (String string : maintenanceHandler.getWhitelist()) {
                     joiner.add(string);
                 }
                 sender.sendMessage(ChatUtil.toLegacyComponent("Players: " + joiner));
