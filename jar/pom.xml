@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>SimpleMaintenance</artifactId>
-        <groupId>me.gardendev</groupId>
+        <groupId>me.jonakls</groupId>
         <version>1.0</version>
     </parent>
 
@@ -31,18 +31,18 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>me.gardendev</groupId>
+            <groupId>me.jonakls</groupId>
             <artifactId>bungecoord</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>me.gardendev</groupId>
+            <groupId>me.jonakls</groupId>
             <artifactId>shared</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.gardendev</groupId>
+            <groupId>me.jonakls</groupId>
             <artifactId>spigot</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.gardendev</groupId>
+        <groupId>me.jonakls</groupId>
         <artifactId>SimpleMaintenance</artifactId>
         <version>1.0</version>
     </parent>
