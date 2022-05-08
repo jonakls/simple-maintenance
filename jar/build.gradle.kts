@@ -12,7 +12,7 @@ dependencies {
 
 tasks {
     shadowJar {
-        archiveBaseName.set("CommandBridge")
+        archiveBaseName.set("SimpleMaintenance")
         minimize()
     }
 }
