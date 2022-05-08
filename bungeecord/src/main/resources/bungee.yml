@@ -1,4 +1,4 @@
 name: SimpleMaintenance
-version: '${project.version}'
-main: me.jonakls.bungeecord.BungeeCordPlugin
+version: '${version}'
+main: me.jonakls.bungeemaintenance.SimpleMaintenanceBungee
 author: Jonakls

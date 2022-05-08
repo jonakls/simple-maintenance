@@ -1,5 +1,6 @@
 plugins {
     java
+    id("com.github.johnrengelman.shadow") version("7.1.2")
 }
 repositories {
     mavenCentral()
@@ -9,5 +10,5 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18-R0.1-SNAPSHOT")
-    compileOnly(project(":shared"))
+    compileOnly(project(":core"))
 }

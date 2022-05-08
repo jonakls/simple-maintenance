@@ -3,6 +3,7 @@ rootProject.name = "SimpleMaintenance"
 include(
     ":bungeecord",
     ":jar",
-    ":shared",
-    ":spigot"
+    ":core",
+    ":spigot",
+    ":velocity"
 )
