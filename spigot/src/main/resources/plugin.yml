@@ -1,6 +1,6 @@
 name: SimpleMaintenance
-version: '${version}'
-main: me.jonakls.bungeemaintenance.SimpleMaintenanceSpigot
+version: '@version@'
+main: me.jonakls.spigotmaintenance.SimpleMaintenanceSpigot
 author: Jonakls
 commands:
   simplemaintenance:
