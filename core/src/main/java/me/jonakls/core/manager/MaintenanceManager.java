@@ -1,19 +1,41 @@
 package me.jonakls.core.manager;
 
-import java.util.List;
 
-public interface MaintenanceManager {
-    void addPlayer(String player);
+import java.util.Map;
+import java.util.UUID;
 
-    void removePlayer(String player);
+public class MaintenanceManager {
 
-    void saveWhitelist();
+    private Map<UUID, String> whitelist;
 
-    void loadWhitelist();
+    public void addPlayer(UUID uuid, String player) {
+        if (!whitelist.containsKey(uuid)) {
+            whitelist.put(uuid, player);
+        }
+    }
 
-    void updateWhitelist();
+    public void removePlayer(UUID uuid) {
+        whitelist.remove(uuid);
+    }
 
-    boolean isWhitelisted(String player);
+    public void saveWhitelist() {
+        //TODO: Save whitelist to file
+    }
 
-    List<String> getWhitelist();
+    public void loadWhitelist() {
+        //TODO: Load whitelist from file
+    }
+
+    public void updateWhitelist() {
+        whitelist.clear();
+        this.loadWhitelist();
+    }
+
+    public boolean isWhitelisted(String player) {
+        return false;
+    }
+
+    public String getWhitelist() {
+        return null;
+    }
 }
