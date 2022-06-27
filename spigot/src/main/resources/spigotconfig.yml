@@ -1,17 +1,47 @@
 #
-# Spigot
+# SPIGOT
 #
 maintenance:
   enable: false
-kick-message:
-  - '&8[&bSimpleMaintenance&8]'
-  - '&r'
-  - '&cServer under maintenance!'
-  - '&r'
-  - '&aRemember to change this'
-  - '&amessage in your config file.'
-  - '&r'
-  - '&eMore info in: &chttps://discord.gg/invite'
+  kick-message:
+    - '&8[&bSimpleMaintenance&8]'
+    - '&r'
+    - '&cServer under maintenance!'
+    - '&r'
+    - '&aRemember to change this'
+    - '&amessage in your config file.'
+    - '&r'
+    - '&eMore info in: &chttps://discord.gg/invite'
 whitelist-players:
-  - xGardenDev
-  - md_5
+  84d01971d4b846809a38591b3a1038b3:
+    name: 'Jonakls'
+  af74a02d19cb445bb07f6866a861f783:
+    name: 'md_5'
+#
+# LANG
+#
+lang:
+  enable: "&aMaintenance has been enable"
+  disable: "&cMaintenance has been disable"
+  reload: "&aPlugin has been reloaded"
+  player-not-found: "&cPlayer not found"
+  player-exist: "&cThis player already in whitelist"
+  player-no-exist: "&cThis player is not in the whitelist"
+  add-success: "&aPlayer %player% has been added to whitelist"
+  remove-success: "&cPlayer %player% has been removed to whitelist"
+  whitelist-saved: "&aWhitelist save successfully"
+  no-permission: '&cYou don''t have enough permissions to do that.'
+  unknown-command: "&cUnknown command, please use /%command% help"
+  usage:
+    add: '&cPlease use /%command% add <player>'
+    remove: '&cPlease use /%command% remove <player>'
+  help:
+    - ''
+    - '&b/%command% &7General command.'
+    - '&b/%command% reload &7Reload plugin.'
+    - '&b/%command% on/enable &7Enable maintenance mode.'
+    - '&b/%command% off/disable &7Disable maintenance mode.'
+    - '&b/%command% add <player> &7Add the player to maintenance whitelist.'
+    - '&b/%command% remove <player> &7Remove player from maintenance whitelist.'
+    - '&b/%command% list &7Get players on the whitelist.'
+    - '&b/%command% save &7Save data of players in config.'
